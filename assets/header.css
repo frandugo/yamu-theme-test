@@ -1,0 +1,17 @@
+header{}
+.header__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+.header__icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 43px;
+}
+.header__menu .list-menu{
+    display: flex;
+    gap: 3rem;
+}

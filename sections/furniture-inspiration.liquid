@@ -1,0 +1,71 @@
+<script src="{{ 'furniture-inspiration-slider.js' | asset_url }}" defer="defer"></script>
+<section class="furniture-inspiration">
+    <div class="furniture-inspiration__content">
+        <h2 class="furniture-hero__title">{{ section.settings.title }}</h2>
+        <p class="furniture-hero__paragraph">{{ section.settings.paragraph | strip_html }}</p>
+        <a 
+            href="{{ section.settings.link }}" 
+            class="btn btn--medium btn--green" 
+            style="background-color: {{  section.settings.button_color }};"
+        >
+                {{ section.settings.button_text }}
+        </a> 
+    </div>
+    <div class="furniture-inspiration__slider furniture-inspiration__slider-js">
+        {% for block in section.blocks %}
+            <div class="furniture-inspiration__slide">
+                <img src="{{ block.settings.image | image_url }}" alt="" width="" height="">
+            </div>
+        {% endfor %}
+    </div>     
+</section> 
+{% schema %}
+{
+  "name": "Furniture Inspiration",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+        "type": "richtext",
+        "id": "paragraph",
+        "label": "Paragraph"
+    },
+    {
+        "type": "text",
+        "id": "link",
+        "label": "Link"
+    },
+    {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text"
+    },
+    {
+        "type": "color",
+        "id": "button_color",
+        "label": "Button Background Color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content_block",
+      "name": "Slider",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Furniture Inspiration",
+    }
+  ]
+}
+{% endschema %}

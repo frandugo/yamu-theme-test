@@ -1,0 +1,133 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "furniture_hero_V7TdG9": {
+      "type": "furniture-hero",
+      "blocks": {
+        "hero_product_block_64nxNt": {
+          "type": "hero_product_block",
+          "settings": {
+            "title": "Lolito",
+            "price": "120",
+            "price_discount": "185",
+            "image": "shopify://shop_images/Pexels_Photo_by_Darina_Belonogova.png"
+          }
+        },
+        "hero_product_block_K7M6Mc": {
+          "type": "hero_product_block",
+          "settings": {
+            "title": "Lolito",
+            "price": "120",
+            "price_discount": "185",
+            "image": "shopify://shop_images/Pexels_Photo_by_Hormel-3.png"
+          }
+        },
+        "hero_product_block_NU36z9": {
+          "type": "hero_product_block",
+          "settings": {
+            "title": "Lolito",
+            "price": "120",
+            "price_discount": "185",
+            "image": "shopify://shop_images/Pexels_Photo_by_Hormel-2.png"
+          }
+        }
+      },
+      "block_order": [
+        "hero_product_block_64nxNt",
+        "hero_product_block_K7M6Mc",
+        "hero_product_block_NU36z9"
+      ],
+      "settings": {
+        "subtitle": "New Arrival",
+        "title": "Transform Your Space with Our New Collection",
+        "paragraph": "<p>Discover our stunning new collection of furniture, designed to elevate your space with style and comfort.</p>",
+        "link": "",
+        "button_text": "BUY Now",
+        "button_color": "#283618",
+        "background_image": "shopify://shop_images/scandinavian-interior-mockup-wall-decal-background_1.jpg"
+      }
+    },
+    "furniture_collection_jnr4yX": {
+      "type": "furniture-collection",
+      "settings": {
+        "title": "Discover Our New Collection",
+        "description": "From sleek, modern designs to timeless classics, each piece is crafted to enhance your living space and suit your unique style.",
+        "collection_one": "dining",
+        "collection_two": "living",
+        "collection_three": "bedroom"
+      }
+    },
+    "furniture_our_products_EyhFgn": {
+      "type": "furniture-our-products",
+      "settings": {
+        "title": "Our Products",
+        "all_products": "all-products"
+      }
+    },
+    "furniture_inspiration_bQ3La3": {
+      "type": "furniture-inspiration",
+      "blocks": {
+        "content_block_tg9hC9": {
+          "type": "content_block",
+          "settings": {
+            "image": "shopify://shop_images/Image.jpg"
+          }
+        },
+        "content_block_YfmPdT": {
+          "type": "content_block",
+          "settings": {
+            "image": "shopify://shop_images/Image.jpg"
+          }
+        },
+        "content_block_mHD6gg": {
+          "type": "content_block",
+          "settings": {
+            "image": "shopify://shop_images/Image.jpg"
+          }
+        },
+        "content_block_PzTaNC": {
+          "type": "content_block",
+          "settings": {
+            "image": "shopify://shop_images/Image.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "content_block_tg9hC9",
+        "content_block_YfmPdT",
+        "content_block_mHD6gg",
+        "content_block_PzTaNC"
+      ],
+      "settings": {
+        "title": "20+ Beautiful rooms  inspiration",
+        "paragraph": "<p>Our designer already made a lot of beautiful prototipe of rooms that inspire you</p>",
+        "link": "#",
+        "button_text": "Explore More",
+        "button_color": "#283618"
+      }
+    },
+    "furniture_gallery_c3U6EB": {
+      "type": "furniture-gallery",
+      "settings": {
+        "title": "Share your setup with",
+        "subtitle": "#Funitura_Furniture",
+        "image": "shopify://shop_images/collage.png"
+      }
+    }
+  },
+  "order": [
+    "furniture_hero_V7TdG9",
+    "furniture_collection_jnr4yX",
+    "furniture_our_products_EyhFgn",
+    "furniture_inspiration_bQ3La3",
+    "furniture_gallery_c3U6EB"
+  ]
+}

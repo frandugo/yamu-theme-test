@@ -1,0 +1,120 @@
+<section class="furniture-hero">
+  <div class="container">
+    <div class="furniture-hero__content">
+      <div class="furniture-hero__text-box">
+        <p class="furniture-hero__subtitle">{{ section.settings.subtitle }}</p>
+        <h1 class="furniture-hero__title">{{ section.settings.title }}</h1>
+        <p class="furniture-hero__paragraph">{{ section.settings.paragraph | strip_html }}</p>
+        <a
+          href="{{ section.settings.link }}"
+          class="btn btn--big btn--green btn--uppercase"
+          style="background-color: {{  section.settings.button_color }};"
+        >
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+    </div>
+    <div class="furniture-hero__products">
+      {% for block in section.blocks %}
+        <div class="furniture-hero__product">
+          {% if block.settings.image %}
+            <img src="{{ block.settings.image | image_url }}" alt="Product 1" width="" height="">
+          {% endif %}
+          <h2>{{ block.settings.title }}</h2>
+          <div class="furniture-hero__prices">
+            <span class="furtinure-hero__price">${{ block.settings.price }}</span>
+            <span class="furtinure-hero__price furtinure-hero__price--line">${{ block.settings.price_discount }}</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<style scoped>
+    .furniture-hero{
+        padding: 100px 0 180px;
+        color: white;
+        background-color: gray;
+        background: {% if section.settings.background_image %}url('{{ section.settings.background_image | image_url }}'){% endif %};
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-bottom: 180px;
+    }
+</style>
+{% schema %}
+{
+  "name": "Furniture Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph"
+    },
+    {
+      "type": "text",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Background Color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hero_product_block",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price"
+        },
+        {
+          "type": "text",
+          "id": "price_discount",
+          "label": "Price with discount"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Furniture Hero"
+    }
+  ]
+}
+{% endschema %}

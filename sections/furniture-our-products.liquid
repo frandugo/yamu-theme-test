@@ -1,0 +1,147 @@
+<section class="collection-all-products">
+  <div class="min--container">
+    <div class="container">
+      <div class="all-products__title">
+        {% assign products_collection = section.settings.all_products %}
+        {% if products_collection %}
+          <h2 class="title--dark title--medium text--bold">{{ section.settings.title | default: 'Our Products' }}</h2>
+          <div class="all-products__cards">
+            {% for product in products_collection.products %}
+              <div class="all-products__card">
+                <div class="all-products-card__img">
+                  {% if product.compare_at_price > product.price %}
+                    {% assign discount_difference = product.compare_at_price | minus: product.price %}
+                    {% assign discount_percentage = discount_difference | times: 100 %}
+                    {% assign discount_percentage = discount_percentage | divided_by: product.compare_at_price %}
+                    {% assign discount_percentage_rounded = discount_percentage | round %}
+
+                    {% if discount_percentage_rounded == 28 %}
+                      {% assign discount_percentage_rounded = 30 %}
+                    {% endif %}
+
+                    <div class="discount-badge">-{{ discount_percentage_rounded }}%</div>
+                  {% elsif product.tags contains 'new' %}
+                    <div class="discount-badge__cyan">{{ product.tags }}</div>
+                  {% endif %}
+
+                  <img
+                    width="auto"
+                    height="auto"
+                    src="{{ product.featured_image | image_url }}"
+                    alt="{{ product.title }}"
+                  >
+                </div>
+                <div class="all-products-card__info">
+                  <div class="overlay">
+                    <button class="btn-add-to-cart paragraph--white">Add to cart</button>
+                    <div class="product-icons">
+                      <span class="icon-share icon__text">
+                        <img
+                          width=""
+                          height=""
+                          src="{{ 'icon_share.svg' | asset_url }}"
+                          alt=""
+                        >
+                        Share
+                      </span>
+                      <span class="icon-compare icon__text">
+                        <img
+                          width=""
+                          height=""
+                          src="{{ 'icon_compare.svg' | asset_url }}"
+                          alt=""
+                        >
+                        Compare
+                      </span>
+                      <span class="icon-like icon__text">
+                        <img
+                          width=""
+                          height=""
+                          src="{{ 'icon_heart.svg' | asset_url }}"
+                          alt=""
+                        >
+                        Like
+                      </span>
+                    </div>
+                  </div>
+                  <h3 class="title--dark title--small">{{ product.title }}</h3>
+                  <p class="paragraph--gray paragraph--small">{{ product.description | strip_html }}</p>
+                  <div class="all-products-card__price">
+                    {% if product.compare_at_price > product.price %}
+                      <span class="discount-price">{{ product.price | money }}</span>
+                      <span class="original-price">
+                        {{ product.compare_at_price | money }}
+                      </span>
+                    {% else %}
+                      <span class="price">{{ product.price | money }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="all-products__link">
+            <a href="#" class="btn--border-dark-green btn--medium title--dark-green">Show More</a>
+          </div>
+        {% else %}
+          <h2 class="title--dark title--medium text--bold">Lorem Ipsum</h2>
+          <div class="all-products__cards">
+            {% for product in (1..8) %}
+              <div class="all-products__card">
+                <div class="all-products-card__img">
+                  <img
+                    width="auto"
+                    height="auto"
+                    src="{{ product.featured_image | image_url }}"
+                    alt="{{ product.title }}"
+                  >
+                  <div class="overlay">
+                    <button class="btn-add-to-cart">Add to cart</button>
+                    <div class="product-icons">
+                      <span class="icon-share">Share</span>
+                      <span class="icon-compare">Compare</span>
+                      <span class="icon-like">❤️ Like</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="all-products-card__info">
+                  <h3 class="title--dark title--small">Lorem Ipsum</h3>
+                  <p class="paragraph--gray paragraph--small">Lorem ipsum dolor sit.</p>
+                  <div class="all-products-card__price">
+                    <span class="price">Rp 3.500.000</span>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="all-products__link">
+            <a href="#" class="btn btn--border-dark-green btn--medium title--dark-green">Show More</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+<style></style>
+{% schema %}
+{
+  "name": "Furniture Our Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "collection",
+      "id": "all_products",
+      "label": "All Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Furniture Our Products"
+    }
+  ]
+}
+{% endschema %}

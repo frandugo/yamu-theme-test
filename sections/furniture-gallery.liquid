@@ -1,0 +1,76 @@
+<section class="furniture-share">
+  <div class="container">
+    <div class="furniture-share__info">
+      <h3 class="title--dark-green">{{ section.settings.title | default: 'Share your setup with' }}</h3>
+      <h4 class="title--medium text--bold title--dark-green">
+        {{ section.settings.subtitle | default: '#Funitura_Furniture' }}
+      </h4>
+    </div>
+  </div>
+</section>
+<section class="furniture-gallery"></section>
+<style>
+  .furniture-share__info {
+    text-align: center;
+    h3 {
+      font-size: 20px;
+      padding-bottom: 20px;
+    }
+  }
+  .furniture-gallery {
+    background: url({{ section.settings.image | image_url }});
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 360px 0;
+    margin-bottom: 54px;
+  }
+  @media (min-width: 580px) and (max-width: 767px) {
+    .furniture-gallery {
+      padding: 209px 0;
+    }
+  }
+  @media (min-width: 320px) and (max-width: 579px) {
+    .furniture-share__info {
+      text-align: center;
+      h3 {
+        font-size: 16px;
+        padding-bottom: 20px;
+      }
+      h4 {
+        font-size: 30px;
+      }
+    }
+    .furniture-gallery {
+      background-size: contain;
+      padding: 134px 0;
+      margin-bottom: 15px;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Furniture gallery",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image Background"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Furniture gallery"
+    }
+  ]
+}
+{% endschema %}

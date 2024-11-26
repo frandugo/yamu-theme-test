@@ -1,0 +1,81 @@
+<section class="furniture-collection-list">
+  <div class="min--container">
+    <div class="container">
+      <div class="container__discover">
+        {% assign title_discover = section.settings.title %}
+        {% assign description_discover = section.settings.description %}
+        <h2 class="title--dark title--semi-medium text--bold">{{ title_discover | default: 'Lorem ipsum' }}</h2>
+        <p class="paragraph--gray paragraph--big text--regular">
+          {{ description_discover | default: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. ' }}
+        </p>
+        <div class="discover-items">
+          {% assign collection_handles = section.settings.collection_one
+            | append: ','
+            | append: section.settings.collection_two
+            | append: ','
+            | append: section.settings.collection_three
+            | append: ','
+          %}
+          {% assign collection_list = collection_handles | split: ',' %}
+
+          {% for collection_handle in collection_list %}
+            {% assign selected_collection = collections[collection_handle] %}
+            {% if selected_collection %}
+              <div class="discover-item">
+                <div class="discover-item__img">
+                  <img
+                    width="auto"
+                    height="auto"
+                    src="{{ selected_collection.featured_image | image_url }}"
+                    alt="{{ selected_collection.title }}"
+                  >
+                </div>
+                <div class="discover-item__info">
+                  <h3 class="title--dark title--small text--semi-bold">{{ selected_collection.title }}</h3>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Furniture Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "collection",
+      "id": "collection_one",
+      "label": "select collection 1"
+    },
+    {
+      "type": "collection",
+      "id": "collection_two",
+      "label": "select collection  2"
+    },
+    {
+      "type": "collection",
+      "id": "collection_three",
+      "label": "select collection 3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Furniture Collection"
+    }
+  ]
+}
+{% endschema %}

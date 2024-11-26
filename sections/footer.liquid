@@ -1,0 +1,138 @@
+<footer class="footer-furniture">
+  <div class="min--container">
+    <div class="container">
+      <div class="footer-furniture__container">
+        {% assign image_background = section.settings.image_footer %}
+        {% if image_background != blank %}
+          <div class="footer-furniture__logo footer-furniture__space">
+            <figure>
+              <img
+                width=""
+                height=""
+                src="{{ image_background | image_url }}"
+                alt=""
+              >
+            </figure>
+            <p class="paragraph--white paragraph--regular paragraph--small">{{ section.settings.description }}</p>
+          </div>
+          <div class="footer-furniture__navigation footer-furniture__space">
+            <h3 class="title--green text--bold">Links</h3>
+            <ul class="navigation__list">
+              {% for link in linklists['main-menu'].links %}
+                <li>
+                  <a class="paragraph--white paragraph--regular paragraph--small" href="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="footer-furniture__help footer-furniture__space">
+            <h3 class="title--green text--bold">Help</h3>
+            <ul class="navigation__list">
+              {% for link in linklists['main-menu'].links %}
+                <li>
+                  <a class="paragraph--white paragraph--regular paragraph--small" href="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="footer-furniture__form footer-furniture__space">
+            <h3 class="title--green text--bold">Newsletter</h3>
+            <form action="post" class="form-newsletter">
+              <input type="text" class="form-newsletter__input">
+              <button class="form-newsletter__button text--upper">subscribe</button>
+            </form>
+          </div>
+        {% else %}
+          <div class="footer-furniture__logo">
+            <figure>
+              {% comment %} <img
+                width=""
+                height=""
+                src="{{ image_background | image_url }}"
+                alt=""
+              > {% endcomment %}
+            </figure>
+            <p class="paragraph--white paragraph--regular paragraph--small">
+              Lorem ipsum, dolor sitlit Quos, <br>
+              ea dolorum.
+            </p>
+          </div>
+          <div class="footer-furniture__navigation">
+            <h3 class="title--green text--bold">Links</h3>
+            <ul class="navigation__list">
+              {% for link in linklists['main-menu'].links %}
+                <li>
+                  <a class="paragraph--white paragraph--regular paragraph--small" href="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="footer-furniture__help">
+            <h3 class="title--green">Help</h3>
+            <ul class="navigation__list">
+              {% for link in linklists['main-menu'].links %}
+                <li>
+                  <a class="paragraph--white paragraph--regular paragraph--small" href="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="footer-furniture__form">
+            <h3 class="title--green">Newsletter</h3>
+            <form action="post" class="form-newsletter">
+              <input type="text" class="form-newsletter__input">
+              <button class="form-newsletter__button text--upper">susbribe</button>
+            </form>
+          </div>
+        {% endif %}
+      </div>
+      {% assign copyright = section.settings.copyright %}
+      {% if copyright %}
+        <div class="footer-furniture__copyright">
+          <p class="paragraph--white paragraph--regular">
+            {{ copyright | default: '2024 Furnitura. All rights reserved' }}
+          </p>
+        </div>
+      {% else %}
+        <div class="footer-furniture__copyright">
+          <p class="paragraph--white paragraph--regular">Lorem ipsum, dolor sit amet.</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "Footer Furniture",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_footer",
+      "label": "Image Footer"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Text Copyright"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer Furnitura"
+    }
+  ]
+}
+{% endschema %}
